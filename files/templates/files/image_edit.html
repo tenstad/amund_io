@@ -1,0 +1,18 @@
+{% include 'files/image_upload.html' %}
+
+<style>
+  .button.upload, #id_file, #file_dummy {
+    display: none !important;
+  }
+  .disabled.field {
+    width: 100%;
+  }
+  .submit.button {
+    margin-top: -25px;
+  }
+</style>
+
+<script>
+  $('form').attr('action', '');
+  $('.ui.header.blue').html('Edit image');
+</script>

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'articles',
     'markdownx',
     'tags',
+    'files',
 ]
 
 MIDDLEWARE = [

@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'^tags/', include('tags.urls')),
+    url(r'^files/', include('files.urls')),
     url(r'^$', Index.as_view()),
 ]

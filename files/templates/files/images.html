@@ -1,0 +1,90 @@
+{% extends 'amund_io/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  Images
+{% endblock title %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static "files/css/images.css" %}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="images section">
+    <form class="ui form" action="/files/images/" method="post">
+      {% csrf_token %}
+      <div class="field">
+        <input type="text"
+        name="search"
+        maxlength="100"
+        value="{{ search }}">
+      </div>
+      <button class="ui button blue submit" name="action">
+        <i class="search icon"></i>
+        Search
+      </button>
+      {% if perms.files.add_image %}
+        <a id="upload" class="ui button blue upload">
+          <i class="upload icon"></i>
+          Upload
+        </a>
+      {% endif %}
+    </form>
+
+
+    <div class="gallery">
+      {% for image in images %}
+        <div class="ui card">
+          <div class="image">
+            <img src="{{ image.url }}">
+          </div>
+          <div class="content txt">
+            <p class="title">
+              {% if image.title|length > 18 %}
+                {{ image.title|slice:":15"|capfirst }}...
+              {% else %}
+                {{ image.title|capfirst }}
+                {% if image.number > 1 %}
+                  {{ image.number }}
+                {% endif %}
+              {% endif %}
+            </p>
+            <div class="meta">
+              <span class="date">{{ image.time|date:"M d, Y, H:i:s" }}</span>
+            </div>
+          </div>
+          <div class="content btns">
+            <div class="ui small icon buttons">
+              <div class="ui blue icon button previewButton" data-content="Preview"
+                previewImage="{{ image.url }}">
+                <i class="image icon"></i>
+              </div>
+              <div class="ui green icon button select" data-content="Select"
+                imageID="{{ image.id }}"
+                selectImage="{{ image.url }}">
+                <i class="hand pointer icon"></i>
+              </div>
+              {% if perms.files.change_image %}
+                <a class="ui yellow icon button editButton" data-content="Edit"
+                  href="/files/image/{{ image.id }}/edit">
+                  <i class="write icon"></i>
+                </a>
+              {% endif %}
+              {% if perms.files.delete_image %}
+                <div class="ui red icon button delete openmodal" data-content="Delete"
+                  url="/files/image/{{ image.id }}/delete/">
+                  <i class="trash icon"></i>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static "files/js/images.js" %}"></script>
+
+{% endblock content %}

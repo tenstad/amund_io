@@ -1,0 +1,9 @@
+{% load staticfiles %}
+
+<script src="{% static "amund_io/js/jquery.min.js" %}"></script>
+
+<script>
+  $(function(){
+    window.opener.doneUploading();
+  });
+</script>

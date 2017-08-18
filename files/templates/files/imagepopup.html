@@ -1,0 +1,15 @@
+<div id="imagepopup">
+  <img id="imagepopupImg">
+</div>
+
+<script>
+  $(".previewButton").click(function() {
+    var src = $(this).attr("previewImage");
+    $("#imagepopupImg").attr("src", src);
+    $("#imagepopup").css("display", "inline");
+  });
+
+  $("#imagepopup").click(function() {
+    $("#imagepopup").css("display", "none");
+  });
+</script>
