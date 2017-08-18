@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'amund_io',
     'articles',
     'markdownx',
+    'tags',
 ]
 
 MIDDLEWARE = [

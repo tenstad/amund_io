@@ -5,5 +5,6 @@ from .views import Index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
-    url(r'', Index.as_view()),
+    url(r'^tags/', include('tags.urls')),
+    url(r'^$', Index.as_view()),
 ]
