@@ -1,1 +1,36 @@
 {% extends 'amund_io/base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static "amund_io/css/index.css" %}">
+{% endblock head%}
+
+{% block content %}
+    <div class="article-grid">
+        {% for article in articles %}
+            <aimg class="article-image">
+                <div class="article-image-container">
+                    <img src="{{ article.thumbnail.url }}">
+                </div>
+            </aimg>
+            <atxt class="article-text">
+                <h2>{{ article.title.upper }}</h2>
+                {{ article.ingress }}
+            </atxt>
+        {% endfor %}
+        <div class="full-width">
+            <h2>Full width</h2>
+        </div>
+        {% for article in articles %}
+            <aimg class="article-image">
+                <div class="article-image-container">
+                    <img src="{{ article.thumbnail.url }}">
+                </div>
+            </aimg>
+            <atxt class="article-text">
+                <h2>{{ article.title.upper }}</h2>
+                {{ article.ingress }}
+            </atxt>
+        {% endfor %}
+    </div>
+{% endblock content %}

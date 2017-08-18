@@ -14,6 +14,12 @@
 
         <link rel="stylesheet" type="text/css" href="{% static "amund_io/css/semantic.min.css" %}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static "amund_io/css/style.css" %}">
+        <link rel="stylesheet" href="{% static "amund_io/css/footer.css" %}">
+        <link rel="stylesheet" href="{% static "amund_io/css/header.css" %}">
+        <link rel="stylesheet" href="{% static "files/css/imagepopup.css" %}">
 
         <script src="{% static "amund_io/js/jquery.min.js" %}"></script>
         <script src="{% static "amund_io/js/semantic.min.js" %}"></script>
@@ -34,9 +40,8 @@
         {% include 'amund_io/footer.html' %}
     {%  endblock footer %}
 
-    </body>
-
     {% include 'amund_io/delete.html' %}
     {% include 'files/imagepopup.html' %}
+    </body>
 
 </html>

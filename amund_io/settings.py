@@ -5,6 +5,7 @@ DB = 'sqlite'
 SECRET_KEY = 'SECRET_KEY'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
+MEDIA_ROOT = '../media/'
 
 try:
     from .local_settings import *

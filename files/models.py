@@ -2,6 +2,7 @@ import os
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 from tags.models import Tag
 
@@ -26,7 +27,7 @@ class Image(models.Model):
         return self.title
 
     def url(self):
-        return '/media/' + str(self.file)
+        return settings.MEDIA_ROOT + str(self.file)
 
     @staticmethod
     def findId(slug):
