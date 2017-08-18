@@ -11,3 +11,6 @@ class Article(models.Model):
     thumbnail = models.ForeignKey(Image, on_delete=models.SET_NULL, blank=True, null=True, related_name='%(app_label)s_%(class)s_related_thumb')
     tags = models.ManyToManyField(Tag, blank=True)
     creation_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title
