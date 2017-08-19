@@ -39,7 +39,7 @@ body {
 
 @media only screen and (max-width: 800px) {
     .article-grid {
-        grid-template-columns: [full-start] 3fr [main-start] 10fr [main-end] 3fr [full-end];
+        grid-template-columns: [full-start] 1fr [main-start] 8fr [main-end] 1fr [full-end];
     }
     .article-image {
         margin-bottom: 0;
@@ -54,7 +54,7 @@ body {
 }
 
 .article-image {
-    background-color: #0e8c8c;
+    background-color: #fff;
 }
 
 .article-text h2 {
