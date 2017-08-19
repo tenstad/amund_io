@@ -10,9 +10,7 @@
     <div class="article-grid">
         {% for article in articles %}
             <aimg class="article-image">
-                <div class="article-image-container">
-                    <img src="{{ article.thumbnail.url }}">
-                </div>
+                <img src="{{ article.thumbnail.url }}">
             </aimg>
             <atxt class="article-text">
                 <h2>{{ article.title.upper }}</h2>
@@ -26,9 +24,7 @@
         </div>
         {% for article in articles %}
             <aimg class="article-image">
-                <div class="article-image-container">
-                    <img src="{{ article.thumbnail.url }}">
-                </div>
+                <img src="{{ article.thumbnail.url }}">
             </aimg>
             <atxt class="article-text">
                 <h2>{{ article.title.upper }}</h2>
