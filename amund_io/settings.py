@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'amund_io',
     'articles',
-    'markdownx',
     'tags',
     'files',
 ]

@@ -1,5 +1,6 @@
 {% extends 'amund_io/base.html' %}
 {% load staticfiles %}
+{% load amund_io_markdown %}
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static "amund_io/css/index.css" %}">
@@ -15,7 +16,9 @@
             </aimg>
             <atxt class="article-text">
                 <h2>{{ article.title.upper }}</h2>
-                {{ article.ingress }}
+                {% autoescape off %}
+                    {{ article.ingress|markdown }}
+                {% endautoescape %}
             </atxt>
         {% endfor %}
         <div class="full-width">
@@ -29,7 +32,9 @@
             </aimg>
             <atxt class="article-text">
                 <h2>{{ article.title.upper }}</h2>
-                {{ article.ingress }}
+                {% autoescape off %}
+                    {{ article.ingress|markdown }}
+                {% endautoescape %}
             </atxt>
         {% endfor %}
     </div>
