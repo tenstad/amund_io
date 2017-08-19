@@ -15,3 +15,39 @@ h2 {
     font-size: 3em;
     font-weight: 500 !important;
 }
+
+p.codeparent {
+    border: 1px solid #e0e0e0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 8px;
+    background-color: #fafafa;
+    display: table;
+    text-align: left !important;
+    margin: 4px auto;
+}
+
+code {
+    white-space: pre;
+    font-family: "Courier New", sans-serif !important;
+    color: #606060;
+    text-align: left !important;
+}
+
+blockquote {
+    background-color: #f2f2f2;
+    border-left: 8px solid #e0e0e0;
+    padding: 8px 50px;
+    color: #606060;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    display: table;
+    margin: auto;
+}
+
+ol, ul {
+    display: table;
+    margin: auto;
+}
