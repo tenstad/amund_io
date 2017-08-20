@@ -1,7 +1,3 @@
-body {
-    background-color: #ddd;
-}
-
 .article-grid {
     display: grid;
     grid-template-columns: [full-start] 3fr [main-start] 10fr 10fr [main-end] 3fr [full-end];

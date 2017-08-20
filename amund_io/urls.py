@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^tags/', include('tags.urls')),
     url(r'^files/', include('files.urls')),
+    url(r'^article/', include('articles.urls')),
+    url(r'^articles/', include('articles.urls')),
     url(r'^$', Index.as_view()),
 ]
 

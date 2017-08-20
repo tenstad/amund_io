@@ -1,3 +1,3 @@
 $('code').each(function () {
-   $(this).parent().addClass('codeparent')
+   $(this).parent().addClass('codeparent');
 });

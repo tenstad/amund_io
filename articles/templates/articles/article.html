@@ -1,0 +1,16 @@
+{% extends 'amund_io/base.html' %}
+{% load staticfiles %}
+{% load amund_io_markdown %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static "articles/css/article.css" %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="article-grid">
+        <h1>{{ article.title }}</h1>
+        {% autoescape off %}
+            {{ article.content|markdown }}
+        {% endautoescape %}
+    </div>
+{%  endblock content %}

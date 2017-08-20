@@ -1,0 +1,29 @@
+.article-grid {
+    display: grid;
+    grid-template-columns: 2fr 10fr 2fr;
+}
+
+.article-grid > * {
+    background-color: #fff;
+    margin: 0;
+    padding: 10px;
+    grid-column: 2 / 3;
+}
+
+.article-grid .full-width {
+    background-color: transparent ;
+    margin: 0;
+    padding: 0;
+    grid-column: 1 / 4;
+}
+
+p {
+    max-height: 100%;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    background-color: #fff;
+}
