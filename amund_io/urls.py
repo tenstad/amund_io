@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^files/', include('files.urls')),
     url(r'^article/', include('articles.urls')),
     url(r'^articles/', include('articles.urls')),
+    url(r'^numclass/', include('numclass.urls')),
     url(r'^$', Index.as_view()),
 ]
 

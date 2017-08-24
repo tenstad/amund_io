@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'articles',
     'tags',
     'files',
+    'numclass',
 ]
 
 MIDDLEWARE = [

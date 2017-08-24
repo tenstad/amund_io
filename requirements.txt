@@ -2,3 +2,4 @@ django
 django_cleanup
 markdown2
 Pillow
+numpy
