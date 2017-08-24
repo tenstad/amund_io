@@ -12,12 +12,17 @@
             <aimg class="article-image">
                 <img src="{{ article.thumbnail.url }}">
             </aimg>
-            <atxt class="article-text">
-                <a href="/articles/{{ article.id }}"><h2>{{ article.title.upper }}</h2></a>
+            <atxt class="article-text a" href="/articles/{{ article.id }}">
+                <h2>{{ article.title.upper }}</h2>
                 {% autoescape off %}
                     {{ article.ingress|markdown }}
                 {% endautoescape %}
             </atxt>
         {% endfor %}
     </div>
+    <script>
+        $('.a').click(function () {
+           location.replace($(this).attr('href'));
+        });
+    </script>
 {% endblock content %}

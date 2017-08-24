@@ -14,7 +14,10 @@ def markdown(text):
         end_start = text.index('<', start_end)
         result += markdown2.markdown(text[:start])
         result += text[start:start_end]
-        result += markdown2.markdown(text[start_end:end_start])
+        if text[start+1:start+4] != 'scr':
+            result += markdown2.markdown(text[start_end:end_start])
+        else:
+            result += text[start_end:end_start]
         result += text[end_start:end]
         text = text[end:]
     result += markdown2.markdown(text)

@@ -1,6 +1,13 @@
 .article-grid {
     display: grid;
-    grid-template-columns: 2fr 10fr 2fr;
+    grid-template-columns: 1fr 800px 1fr;
+    padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .article-grid {
+        grid-template-columns: 1fr 8fr 1fr;
+    }
 }
 
 .article-grid > * {
@@ -19,11 +26,16 @@
 
 p {
     max-height: 100%;
+    font-size: 20px;
 }
 
 img {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    max-width: 100%;
     object-fit: cover;
     background-color: #fff;
+}
+
+.creation-date {
+    margin-top: -20px;
 }
