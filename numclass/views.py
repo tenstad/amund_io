@@ -26,9 +26,9 @@ def predict(request):
         rawimg = img
 
         img = img.convert('RGB')
-        img = img.resize((12, 12))
+        img = img.resize((16, 16))
 
-        net = Net.load('trained_weights_200px_3.npy')
+        net = Net.load('trained_weights_200px_5.npy')
         output = net.run(read_image(img))
         index = list(output).index(max(output))
 
