@@ -17,6 +17,12 @@
 
 .header-mid {
     grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.header-mid a {
+    grid-column: 1/2;
 }
 
 #header h2, #header p {
@@ -30,9 +36,9 @@
     font-size: 50px;
 }
 
-#header li, #header ul, #header h2 {
+#header h2 {
     display: inline-block;
-    vertical-align: bottom;
+    align-self: center;
 }
 
 #header li {
@@ -40,4 +46,13 @@
     text-decoration: none;
     padding: 4px 15px;
     font-size: 20px;
+}
+
+#header ul {
+    grid-column: 2/3;
+    padding-left: 0;
+    margin: 0;
+    margin-right: -20px;
+    align-self: center;
+    justify-self: right;
 }
