@@ -17,12 +17,16 @@ body {
     margin-bottom: 50px;
     grid-column: 2 / 3;
     overflow: hidden;
+    padding: 3px;
 }
 
-.article-text, .full-width {
-    padding: 30px;
-    padding-top: 100px;
+
+
+.article-text > *, .full-width > * {
     text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .full-width {
@@ -41,10 +45,17 @@ body {
 @media only screen and (max-width: 800px) {
     .article-grid {
         grid-template-columns: [full-start] 1fr [main-start] 8fr [main-end] 1fr [full-end];
+        padding-top: 0;
     }
     .article-image {
         margin-bottom: 0;
+        height: 300px;
     }
+
+    .article-text {
+        height: 300px;
+    }
+
     .article-text:nth-of-type(2n+1), .article-image:nth-of-type(2n) {
         grid-column: main;
     }
@@ -52,6 +63,7 @@ body {
 
 .article-text {
     background-color: #fff;
+    padding: 50px;
 }
 
 .article-image {
@@ -88,8 +100,4 @@ body {
 
 .a:hover {
     cursor: pointer;
-}
-
-.header-mid {
-    margin-left: -7.4px;
 }

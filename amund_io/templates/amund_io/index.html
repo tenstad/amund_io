@@ -9,15 +9,18 @@
 {% block content %}
     <div class="article-grid">
         {% for article in articles %}
-            <aimg class="article-image">
+            <aimg class="article-image a" href="/articles/{{ article.id }}">
                 <img src="{{ article.thumbnail.url }}">
             </aimg>
             <atxt class="article-text a" href="/articles/{{ article.id }}">
-                <h2>{{ article.title.upper }}</h2>
-                {% autoescape off %}
-                    {{ article.ingress|markdown }}
-                {% endautoescape %}
+                <div>
+                    <h2>{{ article.title.upper }}</h2>
+                    {% autoescape off %}
+                        {{ article.ingress|markdown }}
+                    {% endautoescape %}
+                </div>
             </atxt>
+            <div class="white1"></div><div class="white2"></div>
         {% endfor %}
     </div>
     <script>

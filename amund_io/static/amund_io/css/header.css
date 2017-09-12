@@ -19,6 +19,7 @@
     grid-column: 2 / 3;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    margin-left: -7.4px;
 }
 
 .header-mid a {
