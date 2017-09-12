@@ -32,7 +32,7 @@ p {
 
 .info-grid {
     display: grid;
-    grid-template-columns: 30px 1fr;
+    grid-template-columns: 1fr 6fr;
 }
 
 .info-grid i {
