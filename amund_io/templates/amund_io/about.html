@@ -3,23 +3,52 @@
 {% load amund_io_markdown %}
 
 {% block head %}
-{% endblock head%}
+    <link rel="stylesheet" type="text/css" href="{% static "amund_io/css/about.css" %}">
+{% endblock head %}
 
 {% block content %}
-    {% for skill_category, value in skills.items %}
-        <p>{{ skill_category }}</p>
-        {% for skill in value %}
-            <div class="ui label">{{ skill.skill }}</div>
-        {% endfor %}
-    {% endfor %}
 
-    {% for experience_category, value in experiences.items %}
-        <p>{{ experience_category }}</p>
-        {% for experience in value %}
-            <p>{{ experience.title }}</p>
-            <p>{{ experience.description }}</p>
-            <p>{{ experience.start_year }}</p>
-            <p>{{ experience.end_year }}</p>
-        {% endfor %}
-    {% endfor %}
+    <div class="page-grid">
+        <div class="about-grid">
+            <div class="about-info">
+                <div class="info-grid">
+                    <i class="mail icon"></i>
+                    <p><a href="mailto:me@amund.io">me@amund.io</a></p>
+                    <i class="call icon"></i>
+                    <p>+47 90820303</p>
+                    <i class="marker icon"></i>
+                    <p>Søndre Berg<br>7050 Trondheim</p>
+                    <i class="github icon"></i>
+                    <p><a href="https://github.com/tenstad" target="_blank">tenstad</a></p>
+                </div>
+            </div>
+
+            <img class="about-img" src="{% static "amund_io/img/me.jpg" %}">
+
+            <div class="experiences">
+                {% for experience_category, value in experiences.items %}
+                    <h2 class="experience-header">{{ experience_category }}</h2>
+                    <hr class="h2-underline">
+                    {% for experience in value %}
+                        <div class="experiences-grid">
+                            <h3 class="experience-title">{{ experience.title }}</h3>
+                            <p class="experience-description">{{ experience.description }}</p>
+                            <p class="experience-year">{{ experience.start_year }} - {% if experience.end_year %}{{ experience.end_year }}{% else %}{{ current_year }}{% endif %}</p>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+            <div class="skills-grid">
+                <h2 class="skill-header">Skills</h2>
+                <hr class="h2-underline">
+                {% for skill_category, value in skills.items %}
+                    <p class="skill-subheader">{{ skill_category }}</p>
+                    {% for skill in value %}
+                        <div class="ui label">{{ skill.skill }}</div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock content %}

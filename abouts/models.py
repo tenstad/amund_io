@@ -15,10 +15,13 @@ class ExperienceCategory(models.Model):
 
 class Experience(models.Model):
     title = models.CharField(max_length=50)
-    description = models.TextField(max_length=300)
+    description = models.TextField(max_length=300, blank=True)
     start_year = models.IntegerField(default=defaut_year)
     end_year = models.IntegerField(default=defaut_year)
     category = models.ForeignKey(ExperienceCategory)
+
+    class Meta:
+        ordering = ['start_year']
 
     def __str__(self):
         return self.title
