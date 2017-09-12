@@ -1,0 +1,25 @@
+{% extends 'amund_io/base.html' %}
+{% load staticfiles %}
+{% load amund_io_markdown %}
+
+{% block head %}
+{% endblock head%}
+
+{% block content %}
+    {% for skill_category, value in skills.items %}
+        <p>{{ skill_category }}</p>
+        {% for skill in value %}
+            <div class="ui label">{{ skill.skill }}</div>
+        {% endfor %}
+    {% endfor %}
+
+    {% for experience_category, value in experiences.items %}
+        <p>{{ experience_category }}</p>
+        {% for experience in value %}
+            <p>{{ experience.title }}</p>
+            <p>{{ experience.description }}</p>
+            <p>{{ experience.start_year }}</p>
+            <p>{{ experience.end_year }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}
