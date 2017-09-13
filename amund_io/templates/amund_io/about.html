@@ -32,7 +32,11 @@
                     {% for experience in value %}
                         <div class="experiences-grid">
                             <h3 class="experience-title">{{ experience.title }}</h3>
-                            <p class="experience-description">{{ experience.description }}</p>
+                            <div class="experience-description">
+                                {% autoescape off %}
+                                    {{ experience.description|markdown }}
+                                {% endautoescape %}
+                            </div>
                             <p class="experience-year">{{ experience.start_year }} - {% if experience.end_year %}{{ experience.end_year }}{% else %}{{ current_year }}{% endif %}</p>
                         </div>
                     {% endfor %}
