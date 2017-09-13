@@ -39,3 +39,12 @@ img {
 .creation-date {
     margin-top: -20px;
 }
+
+ul {
+    margin-left: 24px !important;
+}
+
+ul li {
+    font-size: 20px;
+    line-height: 26px;
+}
