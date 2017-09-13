@@ -20,7 +20,7 @@ class DemoView(TemplateView):
 
 def predict(request):
     try:
-        raw = request.GET.get('image').split('base64,')[1]
+        raw = request.POST.get('image').split('base64,')[1]
         bts = BytesIO(b64decode(raw))
         img = Image.open(bts)
         rawimg = img
