@@ -24,6 +24,7 @@
 
 .header-mid a {
     grid-column: 1/2;
+    outline: none;
 }
 
 #header h2, #header p {
@@ -35,7 +36,6 @@
     padding: 0;
     font-family: 'Patrick Hand SC', cursive;
     font-size: 50px;
-    outline: none;
 }
 
 #header h2 {
