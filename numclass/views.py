@@ -38,7 +38,7 @@ def predict(request):
             next = 0
         else:
             next = max([int(a.split('.')[0]) for a in files]) + 1
-        rawimg.save(path + f'{next}.png')
+        rawimg.save(path + '%r.png' % next)
 
     except (binascii.Error, OSError):
         output = [0] * 10
