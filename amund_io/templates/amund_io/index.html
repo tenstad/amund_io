@@ -15,7 +15,7 @@
     <div class="article-grid">
         {% for article in articles %}
             <aimg class="article-image a" href="/articles/{{ article.id }}">
-                <img src="{{ article.thumbnail.url }}">
+                <img src="{{ article.thumbnail.url }}" style="object-fit: {{ article.object_fit }};">
             </aimg>
             <atxt class="article-text a" href="/articles/{{ article.id }}">
                 <div>
