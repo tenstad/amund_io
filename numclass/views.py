@@ -32,7 +32,7 @@ def predict(request):
         output = net.run(read_image(img))
         index = list(output).index(max(output))
 
-        path = os.getcwd() + '\\..\\numclass_images/%r/' % index
+        path = os.path.join(os.getcwd(), '..', 'numclass_images/%r/' % index)
         files = os.listdir(path)
         if not files:
             next = 0
