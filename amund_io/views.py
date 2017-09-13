@@ -34,7 +34,7 @@ class About(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
-            'skills': group_by_category(Skill, ('skill',)),
+            'skills': group_by_category(Skill, ('skill',), order_by=('-weight',)),
             'experiences': group_by_category(Experience, ('title', 'description', 'start_year', 'end_year'), order_by=('start_year',)),
             'current_year': timezone.now().year,
         })

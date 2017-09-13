@@ -37,6 +37,7 @@ class SkillCategory(models.Model):
 class Skill(models.Model):
     skill = models.CharField(max_length=50)
     category = models.ForeignKey(SkillCategory)
+    weight = models.IntegerField(default=0)
 
     def __str__(self):
         return self.skill
