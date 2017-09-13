@@ -1,5 +1,10 @@
 body {
     background-color: #2f3032;
+    background-size: cover;
+}
+
+#header {
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .article-grid {
@@ -19,8 +24,6 @@ body {
     overflow: hidden;
     padding: 3px;
 }
-
-
 
 .article-text > *, .full-width > * {
     text-align: center;
