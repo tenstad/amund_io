@@ -66,6 +66,11 @@ $('#clear').click(function () {
 
 $('#run').click(function () {
     var img = canvas.toDataURL('image/png');
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", csrf_token);
+        }
+    });
     $.ajax({
         type: 'POST',
         url: '/numclass/predict/',
