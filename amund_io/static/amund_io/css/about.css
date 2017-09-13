@@ -106,5 +106,6 @@ h3 {
 
 .about-img {
     height: 250px;
+    max-height: 40vw;
     border: solid 1px #999;
 }
