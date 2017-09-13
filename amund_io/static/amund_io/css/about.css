@@ -97,3 +97,7 @@ h3 {
 .h2-underline {
     margin-top: -15px;
 }
+
+.ui.label {
+    margin-bottom: 5px;
+}
