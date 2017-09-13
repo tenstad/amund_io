@@ -1,9 +1,7 @@
 from django.db import models
 from django.utils import timezone
-from markdownx.models import MarkdownxField
 from files.models import Image
 from tags.models import Tag
-from markdown import markdown
 
 class Article(models.Model):
     title = models.CharField(max_length=50)
