@@ -67,6 +67,7 @@ $('#clear').click(function () {
 $('#run').click(function () {
     var img = canvas.toDataURL('image/png');
     $.ajax({
+        type: 'POST',
         url: '/numclass/predict/',
         data: {'image': img},
     }).done(function(response) {
