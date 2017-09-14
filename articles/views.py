@@ -9,8 +9,12 @@ class ArticleView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         try:
+            if self.request.user.is_superuser:
+                article = Article.objects.get(id=kwargs['image_id'])
+            else:
+                article = Article.objects.get(id=kwargs['image_id'], hidden=False)
             context.update({
-                'article': Article.objects.get(id=kwargs['image_id'])
+                'article': article
             })
         except Article.DoesNotExist:
             pass
