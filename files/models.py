@@ -27,7 +27,7 @@ class Image(models.Model):
         return self.title
 
     def url(self):
-        return settings.MEDIA_ROOT + str(self.file)
+        return settings.MEDIA_URL + str(self.file)
 
     @staticmethod
     def findId(slug):

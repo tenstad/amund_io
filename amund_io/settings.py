@@ -6,6 +6,7 @@ SECRET_KEY = 'SECRET_KEY'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 MEDIA_ROOT = '../media/'
+MEDIA_URL = '/media/'
 
 try:
     from .local_settings import *
