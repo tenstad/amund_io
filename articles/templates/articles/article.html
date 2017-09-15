@@ -8,7 +8,11 @@
 
 {% block content %}
     <div class="article-grid">
-        <h1>{{ article.title }}</h1>
+        <h1>{{ article.title }}
+            {% if article.github %}
+                <a href="{{ article.github }}" target="_blank"><i class="github icon"></i></a>
+            {% endif %}
+        </h1>
         <p class="creation-date"><i>{{ article.creation_date|date:"F d, Y" }}</i></p>
         {% autoescape off %}
             {{ article.content|markdown }}

@@ -12,6 +12,7 @@ class Article(models.Model):
     creation_date = models.DateTimeField(default=timezone.now)
     object_fit = models.CharField(max_length=50, default='cover')
     hidden = models.BooleanField(default=False)
+    github = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.title

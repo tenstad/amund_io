@@ -48,3 +48,10 @@ ul li {
     font-size: 20px;
     line-height: 26px;
 }
+
+.github.icon {
+    color: #000;
+    float: right;
+    font-size: 24px;
+    margin-top: 8px;
+}
