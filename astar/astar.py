@@ -3,11 +3,9 @@ def astar(board, sort_li=lambda li: sorted(li, key=lambda x: -x.f)):
     start, end = start_and_end(board)
     board.start = start
     board.end = end
-    open_li = []
-    closed_li = [start]
+    open_li = [start]
+    closed_li = []
     start.g = 0
-    start.h = distance(start, end, board.prediction_multiplier)
-    expand(start, end, open_li, closed_li)
 
     while end not in closed_li:
         open_li = sort_li(open_li)
@@ -45,8 +43,8 @@ def expand(tile, end, open_li, closed_li):
 
 
 def shorten(tile, amount):
+    tile.g -= amount
     for c in tile.children:
-        c.g -= amount
         shorten(c, amount)
 
 
