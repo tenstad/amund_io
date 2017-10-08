@@ -17,7 +17,7 @@ class Board(models.Model):
     tile_margin = models.IntegerField(default=0)
     font_size = models.IntegerField(default=16)
     algo = models.IntegerField(default=0)
-    prediction_multiplier = models.IntegerField(default=1)
+    prediction_multiplier = models.FloatField(default=1.0)
 
     def get(self, attr):
         if attr == 'tile_config':
