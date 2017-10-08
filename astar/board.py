@@ -5,7 +5,7 @@ from astar.dijkstra import dijkstra
 
 
 class Board:
-    def __init__(self, tile_size=100, algo=3, start_character='A', end_character='B', board='', tile_config='', font_size=16, tile_margin=0):
+    def __init__(self, tile_size=100, algo=3, start_character='A', end_character='B', board='', tile_config='', font_size=16, tile_margin=0, prediction_multiplier=1):
         self.tile_size = tile_size
         self.tiles = [[]]
         self.algo = algo
@@ -15,6 +15,7 @@ class Board:
         self.tile_config = tile_config
         self.font_size = font_size
         self.tile_margin = tile_margin
+        self.prediction_multiplier = prediction_multiplier
 
     def generate_tiles(self):
         self.tiles = [[Tile(board=self, x=x, y=y) for x in range(self.width)] for y in range(self.height)]

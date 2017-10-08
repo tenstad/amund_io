@@ -21,16 +21,16 @@ class Index(View):
             for attr in ['board', 'start_character', 'end_character', 'tile_config']:
                 if request.POST.get(attr):
                     board.__setattr__(attr, request.POST.get(attr))
-            for attr in ['algo', 'tile_size', 'tile_margin', 'font_size']:
+            for attr in ['algo', 'tile_size', 'tile_margin', 'font_size', 'prediction_multiplier']:
                 try:
                     if request.POST.get(attr):
-                        board.__setattr__(attr, int(request.POST.get(attr)))
+                        board.__setattr__(attr, float(request.POST.get(attr)))
                 except ValueError:
                     pass
 
             try:
                 board_model = BoardModel.objects.get(pk=int(request.POST.get('board_model')))
-                for attr in ['algo', 'board', 'start_character', 'end_character', 'tile_size', 'tile_margin', 'font_size', 'tile_config']:
+                for attr in ['algo', 'board', 'start_character', 'end_character', 'tile_size', 'tile_margin', 'font_size', 'tile_config', 'prediction_multiplier']:
                     board.__setattr__(attr, board_model.__getattribute__(attr))
             except Exception:
                 pass
