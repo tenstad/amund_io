@@ -31,7 +31,7 @@ def expand(tile, end, open_li, closed_li):
     for n in neighbours(tile):
         if n in closed_li or n in open_li:
             if n.g > tile.g + n.weight:
-                amount = n.g - tile.g + n.weight
+                amount = n.g - (tile.g + n.weight)
                 n.parent.children.remove(n)
                 tile.children.append(n)
                 n.parent = tile
@@ -41,8 +41,7 @@ def expand(tile, end, open_li, closed_li):
             n.parent = tile
             n.g = tile.g + n.weight
             n.h = distance(n, end, tile.board.prediction_multiplier)
-            if n not in open_li:
-                open_li.append(n)
+            open_li.append(n)
 
 
 def shorten(tile, amount):
