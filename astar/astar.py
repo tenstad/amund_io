@@ -6,6 +6,7 @@ def astar(board, sort_li=lambda li: sorted(li, key=lambda x: -x.f)):
     open_li = [start]
     closed_li = []
     start.g = 0
+    start.h = distance(start, end, board.prediction_multiplier)
 
     while end not in closed_li:
         open_li = sort_li(open_li)
