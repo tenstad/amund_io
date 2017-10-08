@@ -1,0 +1,17 @@
+{% extends 'amund_io/base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static "astar/css/index.css" %}">
+{% endblock head %}
+
+{% block content %}
+
+    <div class="page">
+    {{ board.title }}
+        {% include 'astar/form.html' %}
+        {% include 'astar/board.html' %}
+    </div>
+
+    <script src="{% static "astar/js/index.js" %}"></script>
+{% endblock content %}

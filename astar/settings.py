@@ -1,20 +1,19 @@
 import os
 
-# Default values
-DB = 'sqlite'
-SECRET_KEY = 'SECRET_KEY'
-DEBUG = True
-ALLOWED_HOSTS = ['*']
-MEDIA_ROOT = '../media/'
-MEDIA_URL = '/media/'
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '!7$1+p3g5q3*gnywv+jd+@lyy%42_$gw_vnplt%k_n=^=+9h%m'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -26,13 +25,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'amund_io',
-    'django_cleanup',
-    'articles',
-    'tags',
-    'files',
-    'numclass',
-    'abouts',
     'astar',
 ]
 
@@ -46,7 +38,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'amund_io.urls'
+ROOT_URLCONF = 'astar.urls'
 
 TEMPLATES = [
     {
@@ -65,30 +57,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'amund_io.wsgi.application'
+WSGI_APPLICATION = 'astar.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if DB == 'postgres':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': DATABASE_NAME,
-            'USER': DATABASE_USER,
-            'PASSWORD': DATABASE_PASSWORD,
-            'HOST': 'localhost',
-            'PORT': '',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+}
 
 
 # Password validation

@@ -1,0 +1,64 @@
+<div class="game board" style="visibility: hidden;">
+    {% for tile in board.tile_set %}
+        <div
+            class="tile"
+            style="
+                grid-column: {{ tile.x_start }}/{{ tile.x_end }};
+                grid-row: {{ tile.y_start }}/{{ tile.y_end }};
+                background-color: {{ tile.color }};
+            "
+        >
+            <p>{{ tile.text }}</p>
+            <div class="tooltip">
+                <p>p: {{ tile.x }}, {{ tile.y }}</p>
+                <p>w: {{ tile.weight }}</p>
+                <p>f: {{ tile.f }}</p>
+                <p>g: {{ tile.g }}</p>
+                <p>h: {{ tile.h }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<style>
+    .game.board {
+        display: grid;
+        grid-template-columns: repeat({{ board.width }}, {{ board.tile_size }}px);
+        grid-template-rows: repeat({{ board.height }}, {{ board.tile_size }}px);
+        grid-auto-flow: dense;
+        grid-gap: {{ board.tile_margin }}px;
+        max-width: {{ board.pixel_width }}px;
+        max-height: {{ board.pixel_height }}px;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        justify-self: center;
+    }
+    .tile {
+        padding: 3px;
+        justify-self: stretch;
+    }
+    .tile p {
+        color: #fff;
+        font-size: {{ board.font_size }};
+    }
+    .tooltip p {
+        color: #fff;
+        font-size: 16px;
+    }
+    .tooltip {
+        visibility: hidden;
+        position: absolute;
+        transform: translate({{ board.tile_size }}px, {{ board.tile_size }}px);
+        z-index: 1;
+        background-color: #2e3032;
+        color: #fff;
+        border-radius: 1px;
+        padding: 10px;
+    }
+    .tile:hover {
+        border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+    .tile:hover .tooltip {
+        visibility: visible;
+    }
+</style>
