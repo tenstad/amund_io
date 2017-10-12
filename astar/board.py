@@ -87,7 +87,7 @@ class Board:
                 except Exception:
                     self.tiles[y][x].color = '#2185d0'
                 try:
-                    self.tiles[y][x].weight = int(conf[c][0])
+                    self.tiles[y][x].weight = float(conf[c][0])
                 except Exception:
                     self.tiles[y][x].weight = 1
                 try:
