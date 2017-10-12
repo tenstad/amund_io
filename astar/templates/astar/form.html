@@ -37,13 +37,20 @@
             <div class="ui radio checkbox">
                 <input class="algo" type="radio" name="algorithm"
                        {% if board.algo == 2 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="2">
-                <label>Depth first</label>
+                <label>DFS</label>
             </div>
         </div>
         <div class="field">
             <div class="ui radio checkbox">
                 <input class="algo" type="radio" name="algorithm"
                        {% if board.algo == 3 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="3">
+                <label>BFS</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input class="algo" type="radio" name="algorithm"
+                       {% if board.algo == 4 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="4">
                 <label>None</label>
             </div>
         </div>

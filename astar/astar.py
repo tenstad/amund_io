@@ -1,5 +1,5 @@
 
-def astar(board, sort_li=lambda li: sorted(li, key=lambda x: -x.f)):
+def astar(board, sort_li=lambda li: sorted(li, key=lambda x: -x.f), pop_li=lambda li: li.pop()):
     start, end = start_and_end(board)
     board.start = start
     board.end = end
@@ -10,7 +10,7 @@ def astar(board, sort_li=lambda li: sorted(li, key=lambda x: -x.f)):
 
     while end not in closed_li:
         open_li = sort_li(open_li)
-        tile = open_li.pop()
+        tile = pop_li(open_li)
         closed_li.append(tile)
         expand(tile, end, open_li, closed_li)
 
@@ -23,6 +23,7 @@ def astar(board, sort_li=lambda li: sorted(li, key=lambda x: -x.f)):
         tile.text = 'O'
         tile = tile.parent
     tile.text = 'O'
+
     return board
 
 

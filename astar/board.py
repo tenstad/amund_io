@@ -1,7 +1,8 @@
 from astar.astar import astar
-from astar.show import show
-from astar.depth import depth
 from astar.dijkstra import dijkstra
+from astar.depth import depth
+from astar.breadth import breadth
+from astar.show import show
 
 
 class Board:
@@ -28,6 +29,8 @@ class Board:
         elif self.algo == 2:
             return depth(self)
         elif self.algo == 3:
+            return breadth(self)
+        elif self.algo == 4:
             return show(self)
 
     @property
