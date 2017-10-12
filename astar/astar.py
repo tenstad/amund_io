@@ -19,10 +19,16 @@ def astar(board, sort_li=lambda li: sorted(li, key=lambda x: -x.f), pop_li=lambd
     for tile in closed_li:
         tile.text = "*"
     tile = end
+    path_len = 1
     while tile != start:
+        path_len += 1
         tile.text = 'O'
         tile = tile.parent
     tile.text = 'O'
+
+    board.open_li_len = len(open_li)
+    board.closed_li_len = len(closed_li)
+    board.path_len = path_len
 
     return board
 
