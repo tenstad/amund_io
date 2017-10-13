@@ -71,24 +71,21 @@ def start_and_end(board):
     return start, end
 
 
+def tryadd(s, tiles, x, y):
+    try:
+        tile = tiles[y][x]
+        if tile.weight >= 0:
+            s.add(tile)
+    except IndexError:
+        pass
+
+
 def neighbours(tile):
     s = set()
-    try:
-        s.add(tile.board.tiles[tile.y][tile.x + 1])
-    except IndexError:
-        pass
-    try:
-        if tile.x - 1 >= 0:
-            s.add(tile.board.tiles[tile.y][tile.x - 1])
-    except IndexError:
-        pass
-    try:
-        s.add(tile.board.tiles[tile.y + 1][tile.x])
-    except IndexError:
-        pass
-    try:
-        if tile.y - 1 >= 0:
-            s.add(tile.board.tiles[tile.y - 1][tile.x])
-    except IndexError:
-        pass
+    tryadd(s, tile.board.tiles, tile.x + 1, tile.y)
+    if tile.x - 1 >= 0:
+        tryadd(s, tile.board.tiles, tile.x - 1, tile.y)
+    tryadd(s, tile.board.tiles, tile.x, tile.y + 1)
+    if tile.y - 1 >= 0:
+        tryadd(s, tile.board.tiles, tile.x, tile.y - 1)
     return s
