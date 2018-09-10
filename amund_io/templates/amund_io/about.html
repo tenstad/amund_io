@@ -33,13 +33,17 @@
                     <hr class="h2-underline">
                     {% for experience in value %}
                         <div class="experiences-grid">
-                            <h3 class="experience-title">{{ experience.title }}</h3>
+                            {% if experience.url %}
+                                <a href="{{ experience.url }}"><h3 class="experience-title">{{ experience.title }}</h3></a>
+                            {% else %}
+                                <h3 class="experience-title">{{ experience.title }}</h3>
+                            {% endif %}
                             <div class="experience-description">
                                 {% autoescape off %}
                                     {{ experience.description|markdown }}
                                 {% endautoescape %}
                             </div>
-                            <p class="experience-year">{{ experience.start_year }} - {% if experience.end_year %}{{ experience.end_year }}{% else %}{{ current_year }}{% endif %}</p>
+                            <p class="experience-year">{{ experience.start_year|date:"M Y" }} - {% if not experience.current %}{{ experience.end_year|date:"M Y" }}{% else %}Present{% endif %}</p>
                         </div>
                     {% endfor %}
                 {% endfor %}

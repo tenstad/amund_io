@@ -67,7 +67,7 @@ p {
 
 .experiences-grid {
     display: grid;
-    grid-template-columns: 1fr 120px;
+    grid-template-columns: 1fr 200px;
     grid-auto-flow: dense;
 }
 
@@ -79,6 +79,7 @@ p {
     grid-column: 2/3;
     justify-self: right;
     margin-top: 4px;
+    font-size: 14px;
 }
 
 .experience-description {

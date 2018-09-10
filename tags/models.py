@@ -12,7 +12,7 @@ class TagGroup(models.Model):
 
 class Tag(models.Model):
     label = models.CharField(max_length=100, verbose_name='Label')
-    group = models.ForeignKey(TagGroup, verbose_name='Group')
+    group = models.ForeignKey(TagGroup, verbose_name='Group', on_delete=models.SET_NULL, null=True)
     creation_date = models.DateTimeField(default=timezone.now, verbose_name='Creation Date')
 
     class Meta:

@@ -15,10 +15,12 @@ class ExperienceCategory(models.Model):
 
 class Experience(models.Model):
     title = models.CharField(max_length=50)
+    url = models.CharField(max_length=300, blank=True, null=True)
     description = models.TextField(max_length=300, blank=True)
-    start_year = models.IntegerField(default=defaut_year)
-    end_year = models.IntegerField(default=defaut_year)
-    category = models.ForeignKey(ExperienceCategory)
+    start_year = models.DateField(default=timezone.now)
+    end_year = models.DateField(default=timezone.now)
+    current = models.BooleanField(default=False)
+    category = models.ForeignKey(ExperienceCategory, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         ordering = ['start_year']
@@ -36,7 +38,7 @@ class SkillCategory(models.Model):
 
 class Skill(models.Model):
     skill = models.CharField(max_length=50)
-    category = models.ForeignKey(SkillCategory)
+    category = models.ForeignKey(SkillCategory, on_delete=models.SET_NULL, null=True)
     weight = models.IntegerField(default=0)
 
     def __str__(self):
