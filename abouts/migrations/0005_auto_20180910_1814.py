@@ -27,12 +27,20 @@ class Migration(migrations.Migration):
             name='category',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='abouts.ExperienceCategory'),
         ),
-        migrations.AlterField(
+        migrations.RemoveField(
+            model_name='experience',
+            name='end_year',
+        ),
+        migrations.RemoveField(
+            model_name='experience',
+            name='start_year',
+        ),
+        migrations.AddField(
             model_name='experience',
             name='end_year',
             field=models.DateField(default=django.utils.timezone.now),
         ),
-        migrations.AlterField(
+        migrations.AddField(
             model_name='experience',
             name='start_year',
             field=models.DateField(default=django.utils.timezone.now),

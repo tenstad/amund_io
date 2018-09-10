@@ -1,0 +1,32 @@
+.page {
+    padding: 20px;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 10px 1fr;
+}
+
+.tile p {
+    margin: 0 !important;
+    padding: 0 2px;
+    font-family: monospace;
+}
+
+.form {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+textarea {
+    font-family: monospace;
+}
+
+#submit {
+    width: 100%;
+}
+
+#add_character {
+    margin-top: 24px;
+    padding-left: 10px;
+    padding-right: 2px;
+}

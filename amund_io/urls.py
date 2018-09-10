@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^article/', include('articles.urls')),
     url(r'^articles/', include('articles.urls')),
     url(r'^numclass/', include('numclass.urls')),
+    url(r'^astar/', include('astar.urls')),
     url(r'^about/', About.as_view()),
     url(r'^$', Index.as_view()),
 ]

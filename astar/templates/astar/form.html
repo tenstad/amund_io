@@ -1,0 +1,151 @@
+<form class="ui form" method="post">
+    {% csrf_token %}
+
+    <div class="field">
+            <label>Load board</label>
+            <div class="ui selection board dropdown">
+                <input id="board_model" type="hidden" name="board_model">
+                <i class="dropdown icon"></i>
+                <div class="default text">Board</div>
+                <div class="menu">
+                    {% for board in boards %}
+                        <div class="item" data-value="{{ board.id }}">{{ board.title }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    <input hidden="" id="algo" type="number" name="algo" value="{{ board.algo }}">
+    <div class="inline fields">
+
+        <label for="algorithm">Algorithm:</label>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input class="algo" type="radio" name="algorithm"
+                       {% if board.algo == 0 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="0">
+                <label>A*</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input class="algo" type="radio" name="algorithm"
+                       {% if board.algo == 1 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="1">
+                <label>Dijkstra</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input class="algo" type="radio" name="algorithm"
+                       {% if board.algo == 2 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="2">
+                <label>DFS</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input class="algo" type="radio" name="algorithm"
+                       {% if board.algo == 3 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="3">
+                <label>BFS</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input class="algo" type="radio" name="algorithm"
+                       {% if board.algo == 4 %}checked="" {% endif %}tabindex="0" class="hidden" data-value="4">
+                <label>None</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label>Board</label>
+        <textarea name="board" placeholder="A..
+.#.
+..B">{{ board.board }}</textarea>
+    </div>
+
+    <div class="fields">
+        <div class="field">
+            <label>Start character</label>
+            <input type="text" placeholder="A" name="start_character" value="{{ board.start_character }}" maxlength="1">
+        </div>
+
+        <div class="field">
+            <label>End character</label>
+            <input type="text" placeholder="B" name="end_character" value="{{ board.end_character }}" maxlength="1">
+        </div>
+
+        <div class="field">
+            <label>Prediction multiplier</label>
+            <input type="number" step="0.01" placeholder="5" name="prediction_multiplier" value="{{ board.prediction_multiplier }}">
+        </div>
+    </div>
+
+    <div class="fields">
+        <div class="field">
+            <label>Tile size (px)</label>
+            <input type="number" placeholder="100" name="tile_size" value="{{ board.tile_size }}">
+        </div>
+
+        <div class="field">
+            <label>Tile margin (px)</label>
+            <input type="number" placeholder="0" name="tile_margin" value="{{ board.tile_margin }}">
+        </div>
+
+        <div class="field">
+            <label>Font size (px)</label>
+            <input type="number" placeholder="16" name="font_size" value="{{ board.font_size }}">
+        </div>
+    </div>
+
+    <div class="field">
+        <label>Tile config</label>
+        <textarea id="tile_config" name="tile_config" placeholder="#:1000,black
+A:1,red
+B:-100000,green">{{ board.tile_config }}</textarea>
+    </div>
+
+    <div class="fields">
+        <div class="field">
+            <label>Character</label>
+            <input id="character" type="text" placeholder="@" maxlength="1">
+        </div>
+        <div class="field">
+            <label>Weight</label>
+            <input id="weight" type="number" placeholder="50">
+        </div>
+        <div class="field">
+            <label>Color</label>
+            <div class="ui selection color dropdown">
+                <input id="color" type="hidden">
+                <i class="dropdown icon"></i>
+                <div class="default text">Color</div>
+                <div class="menu">
+                    <div class="item" data-value="red">Red</div>
+                    <div class="item" data-value="orange">Orange</div>
+                    <div class="item" data-value="yellow">Yellow</div>
+                    <div class="item" data-value="olive">Olive</div>
+                    <div class="item" data-value="green">Green</div>
+                    <div class="item" data-value="teal">Teal</div>
+                    <div class="item" data-value="blue">Blue</div>
+                    <div class="item" data-value="violet">Violet</div>
+                    <div class="item" data-value="purple">Purple</div>
+                    <div class="item" data-value="pink">Pink</div>
+                    <div class="item" data-value="brown">Brown</div>
+                    <div class="item" data-value="grey">Grey</div>
+                    <div class="item" data-value="black">Black</div>
+                </div>
+            </div>
+        </div>
+        <a id="add_character" class="ui blue button"><i class="ui add icon"></i></a>
+    </div>
+
+    <br><br>
+    <button id="submit" class="ui green button">Run</button>
+
+    <p>Path: {{ board.path_len }} &nbsp; Open: {{ board.open_li_len }} &nbsp; Closed: {{ board.closed_li_len }}</p>
+
+</form>
+
+<script>
+    $('.selection.dropdown').dropdown({{ board.title }});
+</script>
